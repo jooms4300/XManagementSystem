@@ -46,7 +46,8 @@ public class MenuManager {
 				}
 			case 4:
 				{
-					
+				System.out.print("Members Id : ");
+				int membersId2 = input.nextInt();
 				}
 			case 5:
 				{
