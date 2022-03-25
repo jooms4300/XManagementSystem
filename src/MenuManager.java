@@ -18,6 +18,18 @@ public class MenuManager {
 			if(num == 1) {
 				addMembers();
 			}
+			else if(num == 2) {
+				DeleteMembers();
+			}
+			else if(num == 3) {
+				EditMembers();
+			}
+			else if(num == 4) {
+				ViewMembers();
+			}
+			else {
+				continue;
+			}
 		}
 	}
 	public static void addMembers(){
@@ -32,12 +44,18 @@ public class MenuManager {
 		String membersPhonenumber = input.next();
 	}
 	public static void DeleteMembers(){
-		
+		Scanner input = new Scanner(System.in);
+		System.out.print("Members Id : ");
+		int membersId = input.nextInt();
 	}
 	public static void EditMembers(){
-		
+		Scanner input = new Scanner(System.in);
+		System.out.print("Members Id : ");
+		int membersId = input.nextInt();
 	}
 	public static void ViewMembers(){
-	
+		Scanner input = new Scanner(System.in);
+		System.out.print("Members Id : ");
+		int membersId = input.nextInt();
 	}
 }
