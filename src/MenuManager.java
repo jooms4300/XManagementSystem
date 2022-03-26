@@ -14,9 +14,7 @@ public class MenuManager {
 			System.out.println("6. Exit");
 			System.out.print("Select one number between 1-6: ");
 			num = input.nextInt();
-			
-			
-			
+		
 			/* 
 			   저번 class project 시간에는 case문으로 사용자에게 입력받은 메뉴번호를 조건으로 실행문을 구현했지만
 			   이번시간에는 메소드를 이용하여 구현을 함.
@@ -43,8 +41,6 @@ public class MenuManager {
 			else {
 				continue;
 			}
-			
-			// 
 		}
 	}
 	
