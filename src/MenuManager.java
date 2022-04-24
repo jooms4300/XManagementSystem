@@ -6,7 +6,7 @@ public class MenuManager {
 		Scanner input = new Scanner(System.in);
 		MemberManager membermanager = new MemberManager(input);
 		
-		int num=0;
+		int num=-1;
 		while(num!=5) {
 			System.out.println("1. Add fitness ceter members ");
 			System.out.println("2. Delete fitness ceter members");
