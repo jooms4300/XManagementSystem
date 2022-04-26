@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 import Member.KGymMember;
 import Member.Member;
+import Member.MemberKind;
+import Member.MusclefactoryMember;
 
 public class MemberManager {
 	ArrayList<Member> members = new ArrayList<Member>();
@@ -15,18 +17,18 @@ public class MemberManager {
 		int kind=0;
 		Member member;
 		while(kind !=1 &&kind != 2) {
-			System.out.print("1 for KGym");
-			System.out.print("2 for MuscleFactory");
-			System.out.print("Select num for Member Kind between 1 and 2 : ");
+			System.out.println("1 for KGym ");
+			System.out.println("2 for MuscleFactory ");
+			System.out.println("Select num for Member Kind between 1 and 2 : ");
 			kind = input.nextInt();
 			if(kind==1) {
-				member = new Member();
+				member = new Member(MemberKind.KGym);
 				member.getUserInput(input);
 				members.add(member);
 				break;
 			}
 			else if(kind == 2) {
-				member = new KGymMember();
+				member = new Member(MemberKind.Muscle_Factoroy);
 				member.getUserInput(input);
 				members.add(member);
 				break;

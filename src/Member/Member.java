@@ -3,10 +3,18 @@ package Member;
 import java.util.Scanner;
 
 public class Member { 
-
-
+	protected MemberKind kind = MemberKind.KGym;
+	protected int id;
+	protected String name;
+	protected String email;
+	protected String phonenumber;
+	
 	public Member() {
 		
+	}
+	
+	public Member(MemberKind kind) {
+		this.kind = kind;
 	}
 	public Member(int id,String name) {
 		this.id=id;
@@ -21,11 +29,19 @@ public class Member {
 
 	}
 	
+	public Member(MemberKind kind,int id,String name,String email,String phonenumber) {
+		this.kind = kind;
+		this.id=id;
+		this.name=name;
+		this.email=email;
+		this.phonenumber=phonenumber;
+
+	}
 	public MemberKind getKind() {
-		return Kind;
+		return kind;
 	}
 	public void setKind(MemberKind kind) {
-		Kind = kind;
+		this.kind = kind;
 	}
 	public int getId() {
 		return id;
@@ -51,13 +67,27 @@ public class Member {
 	public void setPhonenumber(String phonenumber) {
 		this.phonenumber = phonenumber;
 	}
-	protected MemberKind Kind = MemberKind.KGym;
-	protected int id;
-	protected String name;
-	protected String email;
-	protected String phonenumber;
+
 	public void printInfo() {
-		System.out.println("id: " + id + " name: "+ name 
+		String skind="none";
+		
+		switch(this.kind) {
+		case KGym:
+			skind = "K.";
+			break;
+		case Muscle_Factoroy:
+			skind = "Muscle.";
+			break;
+		case AppleGym:
+			skind = "Apple.";
+			break;
+		case PowerGym:
+			skind = "Power.";
+			break;
+		default:
+		}
+		
+		System.out.println("Kind: " + skind + " id: " + id + " name: "+ name 
 				+ " email: " + email + " phonenumber: " + phonenumber);
 	}
 	
