@@ -61,8 +61,7 @@ public class MusclefactoryMember extends Member {
 		String skind="none";
 		switch(this.kind) {
 		case KGym:
-			skind = "K"
-					+ ".";
+			skind = "K.";
 			break;
 		case Muscle_Factoroy:
 			skind = "Muscle.";
