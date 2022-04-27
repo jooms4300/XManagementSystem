@@ -22,13 +22,13 @@ public class MemberManager {
 			System.out.println("Select num for Member Kind between 1 and 2 : ");
 			kind = input.nextInt();
 			if(kind==1) {
-				member = new Member(MemberKind.KGym);
+				member = new KGymMember();
 				member.getUserInput(input);
 				members.add(member);
 				break;
 			}
 			else if(kind == 2) {
-				member = new Member(MemberKind.Muscle_Factoroy);
+				member = new MusclefactoryMember();
 				member.getUserInput(input);
 				members.add(member);
 				break;
