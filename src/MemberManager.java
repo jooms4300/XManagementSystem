@@ -3,11 +3,12 @@ import java.util.Scanner;
 
 import Member.KGymMember;
 import Member.Member;
+import Member.MemberInput;
 import Member.MemberKind;
 import Member.MusclefactoryMember;
 
 public class MemberManager {
-	ArrayList<Member> members = new ArrayList<Member>();
+	ArrayList<MemberInput> members = new ArrayList<MemberInput>();
 	Scanner input;
 	MemberManager(Scanner input){
 		this.input = input; 
@@ -15,22 +16,22 @@ public class MemberManager {
 	
 	public void addMembers(){
 		int kind=0;
-		Member member;
+		MemberInput memberInput;
 		while(kind !=1 &&kind != 2) {
 			System.out.println("1 for KGym ");
 			System.out.println("2 for MuscleFactory ");
 			System.out.println("Select num for Member Kind between 1 and 2 : ");
 			kind = input.nextInt();
 			if(kind==1) {
-				member = new KGymMember();
-				member.getUserInput(input);
-				members.add(member);
+				memberInput = new KGymMember(MemberKind.KGym);
+				memberInput.getUserInput(input);
+				members.add(memberInput);
 				break;
 			}
 			else if(kind == 2) {
-				member = new MusclefactoryMember();
-				member.getUserInput(input);
-				members.add(member);
+				memberInput = new MusclefactoryMember(MemberKind.Muscle_Factoroy);
+				memberInput.getUserInput(input);
+				members.add(memberInput);
 				break;
 			}
 			else {
@@ -62,8 +63,8 @@ public class MemberManager {
 		System.out.print("Members Id : ");
 		int membersId = input.nextInt();
 		for(int i = 0;i<members.size();i++) {
-			Member member = members.get(i);
-			if(member.getId()==membersId) {
+			MemberInput memberInput = members.get(i);
+			if(memberInput.getId()==membersId) {
 				int num = -1;
 				
 				while(num!=5) {
@@ -79,22 +80,22 @@ public class MemberManager {
 					if(num == 1) {
 						System.out.print("Members ID:");
 						int id =input.nextInt();
-						member.setId(id);
+						memberInput.setId(id);
 					}
 					else if(num == 2) {
 						System.out.print("Members Name:");
 						String name =input.next();
-						member.setName(name);
+						memberInput.setName(name);
 						}
 					else if(num == 3) {
 						System.out.print("Members Email:");
 						String email =input.next();
-						member.setEmail(email);
+						memberInput.setEmail(email);
 						}
 					else if(num == 4) {
 						System.out.print("Members Phonenumber:");
 						String phonenumber =input.next();
-						member.setPhonenumber(phonenumber);
+						memberInput.setPhonenumber(phonenumber);
 						}
 					else {
 						continue;

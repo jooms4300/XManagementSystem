@@ -2,12 +2,7 @@ package Member;
 
 import java.util.Scanner;
 
-public class KGymMember extends Member implements MemberInput{
-	
-	public KGymMember(MemberKind kind) {
-		super(kind);
-	}
-	
+public class AppleGymMember extends Member implements MemberInput {
 	public void getUserInput(Scanner input) {
 		System.out.print("Members Id : ");
 		int id = input.nextInt();
@@ -17,28 +12,15 @@ public class KGymMember extends Member implements MemberInput{
 		String name = input.next();
 		this.setName(name);
 		
-		char answer ='X';
-		while(answer!='y' && answer!='Y' && answer!= 'n' && answer!='N') {
-			System.out.print("Do you have and Members Email? (Y/N) ");
-			answer = input.next().charAt(0);
-			if(answer == 'y' || answer == 'Y') {
-				System.out.print("Members Email : ");
-				String email = input.next();
-				this.setEmail(email);
-				break;
-			}
-			else if(answer == 'n' || answer == 'N') {
-				this.setEmail("");
-				break;
-			}
-			else {
-			}
-		}
+		System.out.print("Members Email : ");
+		String email = input.next();
+		this.setEmail(email);
 		
 		System.out.print("Members Phonenumber : ");
 		String phonenumber= input.next();
 		this.setPhonenumber(phonenumber);
 	}
+	
 	public void printInfo() {
 		String skind="none";
 		

@@ -2,7 +2,11 @@ package Member;
 
 import java.util.Scanner;
 
-public class MusclefactoryMember extends Member {
+public class MusclefactoryMember extends Member implements MemberInput{
+	
+	public MusclefactoryMember (MemberKind kind) {
+		super(kind);
+	}
 	
 	protected String pt_number;
 	protected String pt_price;
