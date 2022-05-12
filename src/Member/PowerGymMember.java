@@ -4,29 +4,29 @@ import java.util.Scanner;
 
 import Exception.EmailFormatException;
 
-public class MusclefactoryMember extends PowerGymMember{
-	
-	protected int pt_number;
-	
-	
-	public MusclefactoryMember (MemberKind kind) {
+public abstract class PowerGymMember extends Member{
+	public PowerGymMember (MemberKind kind) {
 		super(kind);
 	}
+
+	public abstract void getUserInput(Scanner input);
 	
-	public void getUserInput(Scanner input) {
-		setMemberID(input);
-		setMemberName(input);
-		setMemberEmailwithYN(input);
-		
+	public void printInfo() {
+		String skind = getKindString();
+		System.out.println("Kind: " + skind + " id: " + id + " name: "+ name 
+				+ " email: " + email + " phonenumber: " + phonenumber);
+	}
+	
+	public void setMemberEmailwithYN(Scanner input) {
 		char answer ='X';
 		while(answer!='y' && answer!='Y' && answer!= 'n' && answer!='N') {
-			System.out.print("Are you going to do pt? (Y/N) ");
+			System.out.print("Do you have and Members Email? (Y/N) ");
 			answer = input.next().charAt(0);
 			try {
 				if(answer == 'y' || answer == 'Y') {
-					System.out.print("pt number : ");
-					pt_number = input.nextInt();
-					this.setpt_num(pt_number);
+					System.out.print("Members Email : ");
+					String email = input.next();
+					this.setEmail(email);
 					break;
 				}
 				else if(answer == 'n' || answer == 'N') {
@@ -38,19 +38,11 @@ public class MusclefactoryMember extends PowerGymMember{
 			}
 			catch(EmailFormatException e) {
 				System.out.println("Incorrect Email Format. put the e-mail address tha contains @");
+				answer ='X';
 			}
 		}
-		setMemeberPhonenumber(input);
-		printInfo(); 
 	}
 	
-	public void printInfo() {
-		
-		String skind = getKindString();
-		
-		System.out.println("Kind: " + skind + "id: " + id + " name: "+ name 
-				+ " email: " + email + " phonenumber: " + phonenumber + " pt_number: " + pt_number);
-	}
 	public String getKindString() {
 		String skind="none";
 		
@@ -71,12 +63,5 @@ public class MusclefactoryMember extends PowerGymMember{
 		}
 		return skind;
 	}
-	
-	void setpt_num(int pt_number){
-		this.pt_number=pt_number;
-	}
-	
-	int getpt_num(){
-		return this.pt_number;
-	}
+
 }

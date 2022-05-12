@@ -2,7 +2,9 @@ package Member;
 
 import java.util.Scanner;
 
-public abstract class Member { 
+import Exception.EmailFormatException;
+
+public abstract class Member implements MemberInput { 
 	protected MemberKind kind = MemberKind.KGym;
 	protected int id;
 	protected String name;
@@ -58,9 +60,13 @@ public abstract class Member {
 	public String getEmail() {
 		return email;
 	}
-	public void setEmail(String email) {
+	public void setEmail(String email) throws EmailFormatException{
+		if(!email.contains("@") && !email.equals("")) {
+			throw new EmailFormatException();
+		}
 		this.email = email;
 	}
+	
 	public String getPhonenumber() {
 		return phonenumber;
 	}
@@ -70,7 +76,56 @@ public abstract class Member {
 
 	public abstract void printInfo();
 	
-
+	public void setMemberID(Scanner input) {
+		System.out.print("Members ID:");
+		int id =input.nextInt();
+		this.setId(id);
+	}
 	
-
+	public void setMemberName(Scanner input) {
+		System.out.print("Members Name:");
+		String name =input.next();
+		this.setName(name);
+	}
+	
+	public void setMemberEmail(Scanner input) {
+		String email = "";
+		while(!email.contains("@")) {
+			System.out.print("Members Email:");
+			email =input.next();
+			try {
+				this.setEmail(email);
+			} 
+			catch (EmailFormatException e) {
+				System.out.println("Incorrect Email Format. put the e-mail address tha contains @");
+			}
+		}
+	}
+	
+	public void setMemeberPhonenumber(Scanner input) {
+		System.out.print("Members Phonenumber:");
+		String phonenumber =input.next();
+		this.setPhonenumber(phonenumber);
+	}
+	
+	public String getKindString() {
+		String skind="none";
+		
+		switch(this.kind) {
+		case KGym:
+			skind = "K.";
+			break;
+		case Muscle_Factoroy:
+			skind = "Muscle.";
+			break;
+		case AppleGym:
+			skind = "Apple.";
+			break;
+		case PowerGym:
+			skind = "Power.";
+			break;
+		default:
+		}
+		return skind;
+	}
 }
