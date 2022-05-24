@@ -1,3 +1,4 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -9,9 +10,14 @@ import Member.MemberInput;
 import Member.MemberKind;
 import Member.MusclefactoryMember;
 
-public class MemberManager extends Member {
+public class MemberManager extends Member implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6912539337820143884L;
+	
 	ArrayList<MemberInput> members = new ArrayList<MemberInput>();
-	Scanner input;
+	transient Scanner input;
 	MemberManager(Scanner input){
 		this.input = input; 
 	}

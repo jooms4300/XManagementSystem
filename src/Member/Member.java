@@ -1,10 +1,15 @@
 package Member;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import Exception.EmailFormatException;
 
-public abstract class Member implements MemberInput { 
+public abstract class Member implements MemberInput, Serializable { 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -582031875151753159L;
 	protected MemberKind kind = MemberKind.KGym;
 	protected int id;
 	protected String name;
