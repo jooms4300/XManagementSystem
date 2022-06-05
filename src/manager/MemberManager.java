@@ -1,3 +1,4 @@
+package manager;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -146,6 +147,14 @@ public class MemberManager extends Member implements Serializable {
 		}
 	}
 	
+	public int size() {
+		return members.size();
+	}
+	
+	
+	public MemberInput get(int index) {
+		return (Member) members.get(index);
+	}
 	public void showEditMenu() {
 		System.out.println("1. Edit Id ");
 		System.out.println("2. Edit Name ");
