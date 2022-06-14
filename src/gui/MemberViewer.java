@@ -17,12 +17,18 @@ public class MemberViewer  extends JPanel{
 
 	MemberManager membermanager;
 	
-	public MemberViewer(WindowFrame frame,MemberManager membermanager) {
-		this.frame =frame;
+	public MemberManager getMembermanager() {
+		return membermanager;
+	}
+
+	public void setMembermanager(MemberManager membermanager) {
 		this.membermanager = membermanager;
-		
-		System.out.println("***" + membermanager.size() + "***");
-		
+	}
+
+	public MemberViewer(WindowFrame frame,MemberManager membermanager) {
+		this.membermanager = membermanager;
+		this.removeAll();
+
 		DefaultTableModel model = new DefaultTableModel();
 		model.addColumn("ID");
 		model.addColumn("NAME");

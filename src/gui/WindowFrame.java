@@ -10,6 +10,7 @@ public class WindowFrame extends JFrame{
 	MenuSelection menuselction;
 	MemberAdder memberadder;
 	MemberViewer memberviewer;
+	
 	MemberManager membermanager;
 	
 	public WindowFrame(MemberManager membermanager) {
@@ -19,7 +20,7 @@ public class WindowFrame extends JFrame{
 		
 		this.membermanager = membermanager;
 		this.menuselction = new MenuSelection(this);
-		this.memberadder = new MemberAdder(this);
+		this.memberadder = new MemberAdder(this,this.membermanager);
 		this.memberviewer = new MemberViewer(this,this.membermanager);
 	
 		this.setupPanel(menuselction);

@@ -23,6 +23,16 @@ public class MemberManager extends Member implements Serializable {
 		this.input = input; 
 	}
 	
+	public void addMembers(String iD,String name,String email,String phone){
+		MemberInput memberInput = new KGymMember(MemberKind.KGym);
+		memberInput.getUserInput(input);
+		members.add(memberInput);
+	}
+	
+	public void addMembers(MemberInput memberInput){
+		members.add(memberInput);
+	}
+	
 	public void addMembers(){
 		
 		int kind=0;

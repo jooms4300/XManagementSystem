@@ -7,12 +7,19 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import listeners.MemberAdderCancelListener;
+import listeners.MemberAdderListener;
+import manager.MemberManager;
+
 public class MemberAdder extends JPanel {
 	
 	WindowFrame frame;
 	
-	public MemberAdder(WindowFrame frame) {
+	MemberManager membermanager;
+	
+	public MemberAdder(WindowFrame frame, MemberManager membermanager) {
 		this.frame =frame;
+		this.membermanager = membermanager;
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
@@ -38,12 +45,18 @@ public class MemberAdder extends JPanel {
 		JLabel labelPhone = new JLabel("phone : ", JLabel.TRAILING);
 		JTextField fieldPhone= new JTextField(10);
 		labelName.setLabelFor(fieldPhone);
+	
+		JButton saveButton = new JButton("save");
+		saveButton.addActionListener(new MemberAdderListener(fieldID,fieldName,fieldEmail,fieldPhone, membermanager));
+		
+		JButton cancelButton = new JButton("cancel");
+		cancelButton.addActionListener(new MemberAdderCancelListener(frame));
 		panel.add(labelPhone);
 		panel.add(fieldPhone);
-	
 		
-		panel.add(new JButton("save"));
-		panel.add(new JButton("cancel"));
+	
+		panel.add(saveButton);
+		panel.add(cancelButton);
 	
 		
 		SpringUtilities.makeCompactGrid(panel, 5, 2, 6, 6, 6, 6);
